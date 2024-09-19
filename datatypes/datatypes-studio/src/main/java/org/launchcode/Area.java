@@ -7,8 +7,14 @@ public class Area {
         Double area;
         Scanner input = new Scanner(System.in);
 
+        Double radius;
+
+        do {
         System.out.println("Enter a radius: ");
-        Double radius = input.nextDouble();
+            radius = input.nextDouble();
+        }
+        while (radius < 0);
+
         area = Circle.getArea(radius);
         System.out.println("The area of the circle with a radius of " + radius + " is: " + area);
         input.close();
