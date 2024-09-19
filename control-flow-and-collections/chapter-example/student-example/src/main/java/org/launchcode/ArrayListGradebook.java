@@ -1,7 +1,8 @@
 package org.launchcode;
-
 import java.util.ArrayList;
 import java.util.Scanner;
+
+
 
 public class ArrayListGradebook {
     public static void main(String[] args) {
