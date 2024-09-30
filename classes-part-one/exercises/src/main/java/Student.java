@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Student {
         private String name;
         private int studentId;
@@ -45,6 +47,51 @@ public class Student {
                 this.gpa = gpa;
         }
 
+        public static String getGradeLevel (int credits) {
+                if(0 <= credits && credits <= 29){
+                        return "Freshman";
+                } else if (30 <= credits && credits <= 59) {
+                        return "Sophomore";
+                } else if (60 <= credits && credits <= 59) {
+                        return "Junior";
+                } else if (90 <= credits){
+                        return "Senior";
+                } else {
+                        return "Not a valid option";
+                }
+        }
+
+        public void addGrade (int credits, double grade){
+
+                double totalQualityScore = this.gpa*this.numberOfCredits;
+                totalQualityScore += credits * grade;
+                this.numberOfCredits += credits;
+                this.gpa = totalQualityScore/this.numberOfCredits;
+        }
+
+
+
+        @Override
+        public String toString() {
+                String studentReport = String.format("%s is a %s with %d credits and a GPA of %.2f", this.name, this.getGradeLevel(this.numberOfCredits), this.getNumberOfCredits(), this.getGpa());
+                return studentReport;
+        }
+        @Override
+        public boolean equals(Object obj) {
+                if (obj == this) {
+                        return true;
+                }
+
+                if (obj == null) {
+                        return false;
+                }
+
+                if(obj.getClass() != getClass()) {
+                        return false;
+                }
+                Student student = (Student) obj;
+                return student.getStudentId() == getStudentId();
+        }
 
         // To instantiate the Student class, add your code to the main in the file, SchoolPractice.
 
