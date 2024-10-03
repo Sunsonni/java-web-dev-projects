@@ -1,6 +1,11 @@
 package org.launchcode;
 
 public class Category {
+    public Category(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
     private String name;
     private String description;
 
